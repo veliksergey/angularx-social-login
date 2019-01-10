@@ -22,4 +22,6 @@ export class SocialUser {
    * Refer to the Linked In docs: https://developer.linkedin.com/docs/fields
    */
   linkedIn?: any;
+
+  vkontakte?: any;
 }

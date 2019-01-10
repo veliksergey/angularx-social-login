@@ -1,10 +1,10 @@
 {
-  "name": "angularx-social-login",
-  "version": "1.2.6",
-  "description": "Social login and authentication module for Angular 4 / 5. Supports authentication with Google and Facebook. Can be extended to other providers also.",
+  "name": "angularx-social-login-with-vk",
+  "version": "1.0.2",
+  "description": "Social login and authentication module for Angular 4 / 5 / 7. Supports authentication with Google, Facebook, LinkedIn, Vkontakte. Can be extended to other providers also.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/abacritt/angularx-social-login"
+    "url": "https://github.com/veliksergey/angularx-social-login-with-vk"
   },
   "author": {
     "name": "Jaibatrik Dutta",
@@ -21,12 +21,12 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/abacritt/angularx-social-login/issues"
+    "url": "https://github.com/veliksergey/angularx-social-login-with-vk/issues"
   },
-  "main": "./bundles/angularx-social-login.umd.js",
-  "module": "./angularx-social-login.es5.js",
-  "es2015": "./angularx-social-login.js",
-  "typings": "./angularx-social-login.d.ts",
+  "main": "./bundles/angularx-social-login-with-vk.umd.js",
+  "module": "./angularx-social-login-with-vk.es5.js",
+  "es2015": "./angularx-social-login-with-vk.js",
+  "typings": "./angularx-social-login-with-vk.d.ts",
   "engines": {
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
