@@ -15,8 +15,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "angularx-social-login-with-vk.js",
-    "flatModuleId": "angularx-social-login-with-vk",
+    "flatModuleOutFile": "angularx-social-login-vk.js",
+    "flatModuleId": "angularx-social-login-vk",
     "genDir": "../../out-tsc/lib-gen-dir/"
   }
 }

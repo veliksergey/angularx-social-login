@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DemoComponent } from './demo/demo.component';
 
-import { SocialLoginModule } from 'angularx-social-login-with-vk';
-import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider  } from 'angularx-social-login-with-vk';
+import { SocialLoginModule } from 'angularx-social-login-vk';
+import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider  } from 'angularx-social-login-vk';
 
 
 const config = new AuthServiceConfig([
