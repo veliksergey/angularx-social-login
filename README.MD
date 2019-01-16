@@ -1,6 +1,8 @@
 # Angular 7 Social Login
 
-Social login and authentication module for Angular 7 (supports Angular 4+). Supports authentication with **Google** and **Facebook**. Can be extended to other providers also.
+Social login and authentication module for Angular 7 (supports Angular 4+). Supports authentication with **Google**, **Facebook** and **Vkontakte**. Can be extended to other providers also.
+
+### Original: [https://github.com/abacritt/angularx-social-login](https://github.com/abacritt/angularx-social-login)
 
 Check out the [demo](https://abacritt.github.io/angularx-social-login/).
 
@@ -9,7 +11,7 @@ Check out the [demo](https://abacritt.github.io/angularx-social-login/).
 ### Install via npm 
 
 ```sh
-npm install --save angularx-social-login
+npm install --save angularx-social-login-vk
 ```
 
 ### Import the module
@@ -17,8 +19,8 @@ npm install --save angularx-social-login
 In your `AppModule`, import the `SocialLoginModule`
 
 ```javascript
-import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
-import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login-vk";
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login-vk";
 
 
 let config = new AuthServiceConfig([
@@ -27,12 +29,8 @@ let config = new AuthServiceConfig([
     provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
   },
   {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
-  },
-  {
-    id: LinkedInLoginProvider.PROVIDER_ID,
-    provider: new LinkedInLoginProvider("LinkedIn-client-Id", false, 'en_US')
+    id: VkontakteLoginProvider.PROVIDER_ID,
+    provider: new VkontakteLoginProvider('Vkontakte-App-Id') // ID приложения в Вконтакте
   }
 ]);
 
@@ -63,8 +61,8 @@ export class AppModule { }
 
 ```javascript
 
-import { AuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
+import { AuthService } from "angularx-social-login-vk";
+import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } from "angularx-social-login-vk";
 
 
 @Component({
@@ -77,16 +75,18 @@ export class DemoComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
+        .then(userData => {
+          console.log('userData:', userData);
+        });
   }
 
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-  
-  signInWithLinkedIn(): void {
-    this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID);
-  }  
+  signInWithVk(): void {
+      this.authService.signIn(VkontakteLoginProvider.PROVIDER_ID)
+        .then(userData => {
+          console.log('userData:', userData);
+        });
+    }
 
   signOut(): void {
     this.authService.signOut();
@@ -100,8 +100,8 @@ export class DemoComponent implements OnInit {
 You are notified when user logs in or logs out. You receive a `SocialUser` object when the user logs in and a `null` when the user logs out. `SocialUser` object contains basic user information such as name, email, photo URL, etc.
 
 ```javascript
-import { AuthService } from "angularx-social-login";
-import { SocialUser } from "angularx-social-login";
+import { AuthService } from "angularx-social-login-vk";
+import { SocialUser } from "angularx-social-login-vk";
 
 @Component({
   selector: 'app-demo',
@@ -163,11 +163,3 @@ let config = new AuthServiceConfig([
 ## Building with AoT
 
 If you are facing issue in building your app with AoT, check [this document](https://github.com/abacritt/angularx-social-login/blob/master/README-AOT.md).
-
-## Running the demo app
-
-```sh
-cd demo
-npm install
-ng serve
-```
