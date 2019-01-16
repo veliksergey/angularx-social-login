@@ -23,5 +23,5 @@ export class SocialUser {
    */
   linkedIn?: any;
 
-  vkontakte?: any;
+  vk?: any;
 }

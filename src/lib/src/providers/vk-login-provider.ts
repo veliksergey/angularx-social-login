@@ -4,9 +4,9 @@ import {LoginOpt} from '../auth.service';
 
 declare let VK: any;
 
-export class VkontakteLoginProvider extends BaseLoginProvider {
+export class VKLoginProvider extends BaseLoginProvider {
 
-    public static readonly PROVIDER_ID = 'VKONTAKTE';
+    public static readonly PROVIDER_ID = 'VK';
 
     constructor(
         private clientId: string
@@ -16,7 +16,7 @@ export class VkontakteLoginProvider extends BaseLoginProvider {
 
     initialize(): Promise<void> {
         return new Promise((resolve, reject) => {
-            this.loadScript(VkontakteLoginProvider.PROVIDER_ID,
+            this.loadScript(VKLoginProvider.PROVIDER_ID,
                 'https://vk.com/js/api/openapi.js?160',
                 () => {
                     VK.init({
@@ -40,7 +40,7 @@ export class VkontakteLoginProvider extends BaseLoginProvider {
                         let user: SocialUser = new SocialUser();
                         user.authToken = session.sid;
 
-                        user.vkontakte = session;
+                        user.vk = session;
 
                         resolve(user);
                     }
@@ -65,7 +65,7 @@ export class VkontakteLoginProvider extends BaseLoginProvider {
                         user.lastName = session.user.last_name;
                         user.authToken = session.sid;
 
-                        user.vkontakte = session;
+                        user.vk = session;
 
                         resolve(user);
                     } else {
