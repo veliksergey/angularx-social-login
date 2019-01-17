@@ -29,8 +29,8 @@ let config = new AuthServiceConfig([
     provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
   },
   {
-    id: VkontakteLoginProvider.PROVIDER_ID,
-    provider: new VkontakteLoginProvider('Vkontakte-App-Id') // ID приложения в Вконтакте
+    id: VKLoginProvider.PROVIDER_ID,
+    provider: new VKLoginProvider('VK-App-Id') // ID приложения в Вконтакте
   }
 ]);
 
@@ -82,7 +82,7 @@ export class DemoComponent implements OnInit {
   }
 
   signInWithVk(): void {
-      this.authService.signIn(VkontakteLoginProvider.PROVIDER_ID)
+      this.authService.signIn(VKLoginProvider.PROVIDER_ID)
         .then(userData => {
           console.log('userData:', userData);
         });
